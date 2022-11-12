@@ -61,6 +61,9 @@ java {
 publishing {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
+        groupId = "com.zeko.gissilali"
+        artifactId = "zeko-sql-builder"
+        version = "1.4.1"
     }
 }
 
