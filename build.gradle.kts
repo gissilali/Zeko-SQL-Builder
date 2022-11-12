@@ -12,7 +12,7 @@ plugins {
 repositories {
     mavenLocal()
     maven {
-        url = uri("http://mvnrepository.com/artifact/")
+        url = uri("https://mvnrepository.com/artifact/")
 
         // isAllowInsecureProtocol = true
     }
@@ -32,20 +32,20 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.20")
-    implementation("io.vertx:vertx-core:4.1.1")
-    implementation("joda-time:joda-time:2.9.7")
+    implementation("io.vertx:vertx-core:4.3.4")
+    implementation("joda-time:joda-time:2.12.1")
     implementation("io.zeko:zeko-data-mapper:1.6.7")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.20")
     testImplementation("org.jetbrains.kotlin:kotlin-reflect:1.6.20")
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.6.20")
-    testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.9")
-    testImplementation("org.spekframework.spek2:spek-runner-junit5:2.0.9")
-    compileOnly("io.vertx:vertx-jdbc-client:4.1.1")
-    compileOnly("com.github.jasync-sql:jasync-postgresql:1.2.3")
-    compileOnly("com.github.jasync-sql:jasync-mysql:1.2.3")
-    compileOnly("com.fasterxml.jackson.core:jackson-databind:2.11.4")
+    testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.18")
+    testImplementation("org.spekframework.spek2:spek-runner-junit5:2.0.18")
+    compileOnly("io.vertx:vertx-jdbc-client:4.3.4")
+    compileOnly("com.github.jasync-sql:jasync-postgresql:2.1.7")
+    compileOnly("com.github.jasync-sql:jasync-mysql:2.1.7")
+    compileOnly("com.fasterxml.jackson.core:jackson-databind:2.14.0")
     compileOnly("com.zaxxer:HikariCP:5.0.1")
-    compileOnly("io.vertx:vertx-lang-kotlin:4.1.1")
+    compileOnly("io.vertx:vertx-lang-kotlin:4.3.4")
 }
 
 group = "io.zeko"
