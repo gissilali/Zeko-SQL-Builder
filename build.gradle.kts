@@ -5,9 +5,11 @@
  */
 
 plugins {
-    java
+    groovy
     `maven-publish`
 }
+
+
 
 repositories {
     mavenLocal()
@@ -31,13 +33,13 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.0")
     implementation("io.vertx:vertx-core:4.3.4")
     implementation("joda-time:joda-time:2.12.1")
     implementation("io.zeko:zeko-data-mapper:1.6.7")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.20")
-    testImplementation("org.jetbrains.kotlin:kotlin-reflect:1.6.20")
-    testImplementation("org.jetbrains.kotlin:kotlin-test:1.6.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0")
+    testImplementation("org.jetbrains.kotlin:kotlin-reflect:1.7.0")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:1.7.0")
     testImplementation("org.spekframework.spek2:spek-dsl-jvm:2.0.18")
     testImplementation("org.spekframework.spek2:spek-runner-junit5:2.0.18")
     compileOnly("io.vertx:vertx-jdbc-client:4.3.4")
@@ -56,6 +58,28 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 java {
     withSourcesJar()
     withJavadocJar()
+}
+
+
+buildscript {
+    // Serves as a global variable
+    // Defines where we get our dependencies
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        val kotlinVersion = "1.7.0"
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    }
+}
+
+apply {
+    plugin("kotlin")
+}
+
+dependencies {
+    val kotlinVersion = "1.7.0"
+    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
 }
 
 publishing {
